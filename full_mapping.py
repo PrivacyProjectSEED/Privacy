@@ -3,14 +3,52 @@ import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from array import *
 
 g=nx.read_edgelist('seed_G1.edgelist',create_using=nx.Graph(),nodetype=int)
 #g2=nx.read_edgelist('seed_G2.edgelist',create_using=nx.Graph(),nodetype=int)
 #pos = nx.spring_layout(g) #list of positions of nodes
 #weights = nx.get_edge_attributes(g, "weight") # List of weights
 
-#standard_deviation = statistics.stdev(g)
+standard_deviation = statistics.stdev(g)
 #print(standard_deviation)
+
+#manual implementation of calcScore
+#calcTrackerg                     #Tracker variable for outer for loop
+#calcTrackerg2 = 0                #Tracker variable for inner for loop
+
+#scoreList = []
+listTracker = 0
+scoreList'listTracker' = []
+def calcScore(Graph g, Graph g2) {
+     while (g1 is not None:) {
+         listTracker = 0
+         while (g2 is not None:) {
+            currentScore = ??? / g1.number_of_edges ???
+            scoreList'listTracker'.append(currentScore)
+            g2.current_node = g2.next
+            maxScore = 0
+            if (currentScore > maxScore ) {
+                secondMaxScore = maxScore
+            }
+            maxScore = scoreList.max()
+            listTracker += 1
+
+         }
+         ECCE = (maxScore - secondMaxScore) / standard_deviation
+         if (ECCE >= 0.8) {
+             # Open a file with access mode 'a'
+             file_object = open('sample.txt', 'a')
+             # Append 'hello' at the end of file
+             file_object.write(g.this_node + g2.index(maxValue)'\n')
+             # Close the file
+             file_object.close()
+         }
+         g.current_node = g.next
+    }
+}
+
+
 nx.draw(g)
 #nx.draw(g2)
 #nx.draw_networkx(g, pos, with_labels=True)
@@ -40,6 +78,7 @@ node_times = {'Bran-Stark':-1,'Samwell-Tarly':-1,'Jon-Snow':0}
 for t in range(10):
     plot_G(subG,pos,node_times,t)
     node_times = independent_cascade(subG,t,node_times)
+
 
 
 #once we do that we take the standard deviation of all the values
