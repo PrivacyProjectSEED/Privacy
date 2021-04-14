@@ -23,27 +23,25 @@ file_object.close()
 
 #scoreList = []
 listTracker = 0
-scoreList'listTracker' = []
-def calcScore(g, g2) {
+
+def calcScore(g, g2):
      file = open("sample.txt","r+")
      file.truncate(0)
      file.close()
-     while (g is not None:) {
-         listTracker = 0
-         while (g2 is not None:) {
-            currentScore = ??? / g.edges(current_node) * g2.edges(current_node)
-            #scoreList'listTracker'.append(currentScore)
-
-            g2.current_node = g2.next
-            maxScore = 0
-            if (currentScore > maxScore ) {
-                secondMaxScore = maxScore
+     while g.this_node is not None: {
+         while g2.this_node is not None: {
+             scoreList = []
+             currentScore = ??? / g.edges(current_node) * g2.edges(current_node)
+             scoreList.append(currentScore)
+             g2.current_node = g2.next
+             maxScore = 0
+             if currentScore > maxScore {
+                 secondMaxScore = maxScore
             }
             maxScore = scoreList.max()
-            listTracker += 1
          }
          ECCE = (maxScore - secondMaxScore) / standard_deviation
-         if (ECCE >= 0.8) {
+         if ECCE >= 0.8 {
              # Open a file with access mode 'a'
              file_object = open('sample.txt', 'a')
              # Append 'hello' at the end of file
@@ -53,8 +51,6 @@ def calcScore(g, g2) {
          }
          g.current_node = g.next
     }
-}
-
 
 nx.draw(g)
 #nx.draw(g2)
@@ -86,14 +82,14 @@ for t in range(10):
     plot_G(subG,pos,node_times,t)
     node_times = independent_cascade(subG,t,node_times)
 
-while (os.stat("sample.txt").st_size != 0) {
+while os.stat("sample.txt").st_size != 0: {
     calcScore(g, g2)
+    #now we have to read from sample.txt and place the pairs into the other text file
+    with open("sample.txt") as f:
+    with open("officialPairNodes.txt", "w") as f1:
+        for line in f:
+            f1.write(line)
 }
-
-
-
-
-
 
 #once we do that we take the standard deviation of all the values
 #then the ECCE is found by taking (max - second largest max) / (standard deviation)
