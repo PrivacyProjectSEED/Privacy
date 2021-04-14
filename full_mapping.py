@@ -31,7 +31,10 @@ def calcScore(g, g2):
      while g.this_node is not None: {
          while g2.this_node is not None: {
              scoreList = []
-             currentScore = ??? / g.edges(current_node) * g2.edges(current_node)
+             if g2.this_node.isNeighbor(column2oftextfile):
+                if g.this_node.isNeighbor(column1oftextfile):
+                    numerator +=1
+             currentScore = numerator / g.edges(current_node) * g2.edges(current_node)
              scoreList.append(currentScore)
              g2.current_node = g2.next
              maxScore = 0
