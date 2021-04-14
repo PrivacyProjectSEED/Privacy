@@ -1,9 +1,9 @@
-
 import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from array import *
+import os
 
 g=nx.read_edgelist('seed_G1.edgelist',create_using=nx.Graph(),nodetype=int)
 #g2=nx.read_edgelist('seed_G2.edgelist',create_using=nx.Graph(),nodetype=int)
@@ -17,15 +17,23 @@ standard_deviation = statistics.stdev(g)
 #calcTrackerg                     #Tracker variable for outer for loop
 #calcTrackerg2 = 0                #Tracker variable for inner for loop
 
+file_object = open('sample.txt', 'a')
+file_object.write("1\n")
+file_object.close()
+
 #scoreList = []
 listTracker = 0
 scoreList'listTracker' = []
-def calcScore(Graph g, Graph g2) {
-     while (g1 is not None:) {
+def calcScore(g, g2) {
+     file = open("sample.txt","r+")
+     file.truncate(0)
+     file.close()
+     while (g is not None:) {
          listTracker = 0
          while (g2 is not None:) {
-            currentScore = ??? / g1.number_of_edges ???
-            scoreList'listTracker'.append(currentScore)
+            currentScore = ??? / g.edges(current_node) * g2.edges(current_node)
+            #scoreList'listTracker'.append(currentScore)
+
             g2.current_node = g2.next
             maxScore = 0
             if (currentScore > maxScore ) {
@@ -33,14 +41,13 @@ def calcScore(Graph g, Graph g2) {
             }
             maxScore = scoreList.max()
             listTracker += 1
-
          }
          ECCE = (maxScore - secondMaxScore) / standard_deviation
          if (ECCE >= 0.8) {
              # Open a file with access mode 'a'
              file_object = open('sample.txt', 'a')
              # Append 'hello' at the end of file
-             file_object.write(g.this_node + g2.index(maxValue)'\n')
+             file_object.write(g.this_node + " " + g2.index(maxValue)'\n')
              # Close the file
              file_object.close()
          }
@@ -73,21 +80,28 @@ def independent_cascade(G,t,node_times):
     return node_times
 
 
-node_times = {'Bran-Stark':-1,'Samwell-Tarly':-1,'Jon-Snow':0}
+node_times = {'a':-1,'b':-1,'c':0}
 
 for t in range(10):
     plot_G(subG,pos,node_times,t)
     node_times = independent_cascade(subG,t,node_times)
+
+while (os.stat("sample.txt").st_size != 0) {
+    calcScore(g, g2)
+}
+
+
+
 
 
 
 #once we do that we take the standard deviation of all the values
 #then the ECCE is found by taking (max - second largest max) / (standard deviation)
 #he said we have to choose our threshold
-#but in this case threshold is 0.5
+#but in this case threshold is 0.8
 #and since the ECCE on this slide is greater than 0.5 we take the largest score in the data set and make those 2 nodes a pair
 #then we move to v2, u1
-#if ECCE is lower than 0.5 then we move on and don't add any nodes from that set to the node pair text file
+#if ECCE is lower than 0.8 then we move on and don't add any nodes from that set to the node pair text file
 #we have to store the nodes somewhere and add it at the end of the iteration
 #in the second iteration we run back to v1 and redo everything all over again
 #except this time we'll have updated seed_node.txt
