@@ -1,3 +1,6 @@
+The goal of this project is the following:
+Taking two graphs and a given list of nodes, find as many pairs as possible between the two graphs.
+
 Python 3.9 is the minimum Python version required to run this program, you can download it here:
 https://www.python.org/downloads/
 Networkx is also required in order to run this program, you can set it up here:
